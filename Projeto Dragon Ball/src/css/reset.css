@@ -1,0 +1,11 @@
+/*asrterisco é um seletor. Ele vai até próxima chave*/
+* { 
+  margin: 0;/*0 não deixa margem entre conteúdo e borda*/
+  padding: 0;/*outra propriedade, igual margin. espaçamento dentro do elemento*/
+  box-sizing: border-box;/*meche com espaçamento e largura*/
+}
+
+/*estilo selecionado:nenhum. Isso tira a bolinha que fica quando se faz uma lista, igual no word*/
+ul {
+    list-style: none;
+}

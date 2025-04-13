@@ -1,0 +1,128 @@
+body {
+  background-color: #000000;
+  overflow: hidden;/*ele esconde qualquer sobra, assim não a imagem encaixa perfeitamente e tela não fica rolando como se tivesse mais pra baixo*/
+}
+
+main::after {
+  /*isso é um pseudoelemento*/
+  content: "";
+  position: fixed;
+  /*determina a posição fixa. Topo e à esquerda*/
+  top: 0;
+  left: 0;
+  /*vh centraliza e corta sobras. Esse 100 e 80vh determina o tamanho do gradiente*/
+  min-height: 100vh;
+  width: 80vh;
+  background: linear-gradient(92deg, #000 25%, rgba(0, 0, 0, 0) 75%) no-repeat;
+  /*cria o gradiente embaixo das letras.
+  Na dúvida copia esse código ou procura no google ou chatgpt*/
+}
+
+main .personagem {
+  display: none;/*não mostrar os elementos da página*/
+  height: 100vh;/*vh é a altura da tela em si. ou seja, ocupa toda a tela que houver. Daí não importa o tamanho da tela. Ele vai esticar a imagem.*/
+}
+
+main .personagem.selecionado {
+  /*esse sistema de colocar ponto entre as palavras quer dizer que vai ser uma ação só nesse elemento personagem da classe selecionado*/
+  display: block;/*valor padrão para aparecer na tela do css*/
+}
+
+main .personagem .imagem {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;/*
+  /*aqui diz que quer que a imagem ocupe 100% da largura e altura da tela*/
+}
+
+.conteudo {
+  position: absolute;
+  top: 0;/*vai pro topo*/
+  left: 120px;/*se afasta da borda esquerda 120px. Pode mudar os pixels*/
+  display: flex;/*bota título e texo um do lado do outro*/
+  flex-direction: column;/*faz coluna*/
+  justify-content: center;/*centraliza*/
+  height: 100vh;/*determina tamanho*/
+  max-width: 380px;/*diz largura máxima para esse cionteúdo=380pixels*/
+  z-index: 1;/*coloca o texto sobre o gradiente. O eixo z é sobre a profundidade. Ou seja, o texto é o 1ª sobre tudo.*/
+}
+
+.conteudo .nome-personagem {
+  color: #ffffff;/*muda cor dos textos*/
+  font-size: 48px;
+  font-family: "Secular One";/*nome da fonte, tá no html*/
+  font-weight: 400;/*peso da fonte*/
+  margin-bottom: 20px;/*adiciona um espaçamento só embaixo*/
+}
+
+.conteudo .descricao {
+  /*estiliza o texto em si*/
+  color: #ffffff;
+  font-family: "Rubik";/*outra fonte importada lá no html*/
+  font-size: 16px;
+  line-height: 24px;/*aumenta o espaçamento entre as linhas*/
+}
+
+.botoes {
+  background-color: rgba(0, 0, 0, 0.3);/*bota o fundo nos botões, 0.3 é uma leve opacidade, cor chapada é 1 e 0 não tem.*/
+  position: fixed;/*coloca os botões no lugar fixado*/
+  /*define a posição dos botões: direita e topo*/
+  top: 0;
+  right: 0;
+  width: 180px;
+  /*os flex centralizam e deixam enfileirados*/
+  display: flex;
+  flex-direction: column;
+  /*centraliza horizontalmente*/
+  align-items: center;
+  justify-content: center;
+  /*define uma altura para ele encontrar o mei e centralizar*/
+  min-height: 100vh;
+  gap: 16px;/*afasta um botão do outro para eles não colarem um no outro na cascata*/
+}
+
+.botoes .botao {
+  border: none;
+  background-color: #000000;/*fundo preto*/
+  /*tamanho*/
+  width: 90px;
+  height: 90px;
+  /*muda o cursor para uma mãozinha*/
+  cursor: pointer;
+  /*dá um zoom suave quando passa o mouse sobre. Ease é tipo deanimação e 0.3 é a velocidade em que ela ocorre*/
+  transition: transform 0.3s ease;
+  border-radius: 50%;/*arredonda a borda do botão*/
+}
+
+.botoes .botao img {
+  border-radius: 50%;
+  /*arredonda a imagem*/
+}
+
+.botoes .botao.selecionado {
+  transform: scale(1.2);/*deixa o botão maior*/
+  box-shadow: 0 0 10px #d9d9d9;/*faz um sombreamento no elemento*/
+}
+
+/*todos os próximos botões tem essa configuração específica conforme sua classe
+Assim fica a sombra neon em torno do botão redondinho quando passa o mouse*/
+
+.botoes .botao.cyberstorm.selecionado {
+  box-shadow: 0 0 10px #47ffc5;
+}
+
+.botoes .botao.codepixie.selecionado {
+  box-shadow: 0 0 10px #9747ff;
+}
+
+.botoes .botao.hexblade.selecionado {
+  box-shadow: 0 0 10px #ffa947;
+}
+
+.botoes .botao.neonpulse.selecionado {
+  box-shadow: 0 0 10px #e4309a;
+}
+
+.botoes .botao.codebreaker.selecionado {
+  box-shadow: 0 0 10px #fff047;
+}
